@@ -10,7 +10,7 @@ func _process(delta):
 	var spell_markers = $Hands/SpellMarker.get_children()
 	var selected_marker = spell_markers[randi() % spell_markers.size()]
 	markPos.emit(selected_marker.global_position)
-	if Input.is_action_pressed("interact"):
+	if Input.is_action_pressed("special"):
 		# Distance between player and mouse
 		var mouse_delta = get_global_mouse_position() - playerPos
 		# Gets direction by normalizing Vector
