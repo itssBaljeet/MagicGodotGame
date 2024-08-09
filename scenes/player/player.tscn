@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://badk3r16foj3o"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_0wla4"]
+[ext_resource type="Texture2D" uid="uid://bfyc0xj0o4iqn" path="res://graphics/player/mage.png" id="2_mq70h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lal3"]
+size = Vector2(14, 16)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 15
+script = ExtResource("1_0wla4")
+
+[node name="Mage" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -4)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_mq70h")
+region_rect = Rect2(0, -0.0978928, 15.7357, 16.0979)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_2lal3")
+
+[node name="DefaultSpellCooldown" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="SecondSpellCooldown" type="Timer" parent="."]
+wait_time = 0.291
+
+[connection signal="timeout" from="DefaultSpellCooldown" to="." method="_on_default_spell_cooldown_timeout"]
+[connection signal="timeout" from="SecondSpellCooldown" to="." method="_on_second_spell_cooldown_timeout"]

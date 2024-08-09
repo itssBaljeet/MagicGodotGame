@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7gro128ccpt7"]
+
+[ext_resource type="Texture2D" uid="uid://lpngyg7623sy" path="res://graphics/projectiles/magic_ball.png" id="1_duxy3"]
+[ext_resource type="Script" path="res://scenes/projectiles/magic_ball.gd" id="1_jdvqj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_waypy"]
+radius = 4.0
+
+[node name="Magic Ball" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_jdvqj")
+speed = 250
+
+[node name="Ball Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_duxy3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_waypy")

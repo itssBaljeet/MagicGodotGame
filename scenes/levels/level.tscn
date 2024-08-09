@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://do043bihp214l"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_s1y56"]
+[ext_resource type="PackedScene" uid="uid://badk3r16foj3o" path="res://scenes/player/player.tscn" id="2_4wdr5"]
+[ext_resource type="PackedScene" uid="uid://bo63e7s60j085" path="res://scenes/player/hands.tscn" id="4_hegrm"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_s1y56")
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_4wdr5")]
+position = Vector2(953, 536)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Hands2" parent="." instance=ExtResource("4_hegrm")]
+position = Vector2(953, 536)
+
+[connection signal="handpos" from="Player" to="Player/Camera2D" method="_on_player_handpos"]
+[connection signal="handpos" from="Player" to="Hands2" method="_on_player_handpos"]
+[connection signal="hands" from="Player" to="Hands2" method="_on_player_hands"]
+[connection signal="mouse_entered" from="Player" to="Hands2" method="_on_player_mouse_entered"]
+[connection signal="mouse_exited" from="Player" to="Hands2" method="_on_player_mouse_exited"]
+[connection signal="secondSpell_input" from="Player" to="." method="_on_player_second_spell_input"]
+[connection signal="spell_input" from="Player" to="." method="_on_player_spell_input"]
+[connection signal="markPos" from="Hands2" to="Player" method="_on_hands_2_mark_pos"]
+[connection signal="rad_exceed" from="Hands2" to="Player" method="_on_hands_2_rad_exceed"]
