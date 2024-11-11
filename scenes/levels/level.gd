@@ -4,6 +4,14 @@ class_name LevelDefault
 var magic_ball_scene: PackedScene = preload("res://scenes/projectiles/magic_ball.tscn")
 var ballScale: Vector2 = Vector2(2, 2)
 
+func _process(delta):
+	$UI/VBoxContainer/Resources/Coin_Counter/Label.text = str(Global.coin_count)
+	
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().paused = true
+		$UI.hide()
+		$PauseMenu.show()
+
 func _on_player_spell_input(pos, direction):
 	var ball = magic_ball_scene.instantiate() as Area2D
 	ball.position = pos
@@ -11,8 +19,6 @@ func _on_player_spell_input(pos, direction):
 	ball.direction = direction
 	$Projectiles.add_child(ball)
 	
-
-
 
 func _on_player_second_spell_input(pos, direction):
 	var turbo_ball = magic_ball_scene.instantiate() as Area2D
@@ -24,6 +30,7 @@ func _on_player_second_spell_input(pos, direction):
 	$Projectiles.add_child(turbo_ball)
 
 
-func _on_wizard_tower_player_entered_door(body):
-	print("Entered wizard tower")
-	print(body)
+func _on_resume_button_pressed():
+	get_tree().paused = false
+	$PauseMenu.hide()
+	$UI.show()

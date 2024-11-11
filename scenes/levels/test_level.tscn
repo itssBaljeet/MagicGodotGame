@@ -1,10 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://d0tb1mxtuihr"]
+[gd_scene load_steps=26 format=3 uid="uid://d0tb1mxtuihr"]
 
 [ext_resource type="PackedScene" uid="uid://do043bihp214l" path="res://scenes/levels/level.tscn" id="1_1k1nm"]
 [ext_resource type="Texture2D" uid="uid://brmt8sqp5ln72" path="res://graphics/tilemaps/basicGrass2.png" id="2_4j41g"]
+[ext_resource type="Script" path="res://scenes/levels/test_level.gd" id="2_iqfju"]
 [ext_resource type="PackedScene" uid="uid://c03tvi8gg1bqo" path="res://scenes/enemies/goblin.tscn" id="2_sq0sl"]
 [ext_resource type="PackedScene" uid="uid://8a7r4mtotqys" path="res://scenes/enemies/skeleton.tscn" id="3_3j1h7"]
 [ext_resource type="PackedScene" uid="uid://duhrstarj6obb" path="res://scenes/objects/wizardTower.tscn" id="3_crh2g"]
+[ext_resource type="PackedScene" uid="uid://rhydgtoe2sfo" path="res://scenes/objects/health_potion.tscn" id="6_y7si8"]
+[ext_resource type="PackedScene" uid="uid://cn75iyt80e0v3" path="res://scenes/objects/coin.tscn" id="7_x11u4"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vbg7w"]
 polygon = PackedVector2Array(-2, -7, 1.99219, -7, 4, -4.99219, 3.99877, 5.99816, 2.98154, 6.99785, 2, 7, 2, 8, -2, 8, -2, 7, -2.98438, 7, -4, 5.98438, -3.99219, -4.99219)
@@ -209,6 +212,7 @@ sources/0 = SubResource("TileSetAtlasSource_dj2qn")
 
 [node name="Level" instance=ExtResource("1_1k1nm")]
 y_sort_enabled = true
+script = ExtResource("2_iqfju")
 
 [node name="TileMap" type="TileMap" parent="Ground" index="0"]
 texture_filter = 1
@@ -249,5 +253,18 @@ position = Vector2(119, 0)
 z_index = 1
 position = Vector2(-130, 0)
 
+[node name="Node2D2" parent="." index="6" instance=ExtResource("6_y7si8")]
+position = Vector2(-28, 26)
+
+[node name="Node2D" parent="." index="7" instance=ExtResource("7_x11u4")]
+position = Vector2(0, 46)
+
+[node name="Node2D3" parent="." index="8" instance=ExtResource("7_x11u4")]
+position = Vector2(0, 70)
+
+[node name="Node2D4" parent="." index="9" instance=ExtResource("7_x11u4")]
+position = Vector2(0, 22)
+
+[connection signal="player_entered_door" from="Ground/Wizard Tower" to="." method="_on_wizard_tower_player_entered_door"]
 [connection signal="handpos" from="Player" to="Skeleton" method="_on_player_handpos"]
 [connection signal="handpos" from="Player" to="Goblin" method="_on_player_handpos"]
