@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://8a7r4mtotqys"]
 
 [ext_resource type="Script" path="res://scenes/enemies/skeleton.gd" id="1_bsaco"]
-[ext_resource type="Texture2D" uid="uid://c01n2sw85pm33" path="res://graphics/player/skeleton_sprite_frames_new.png" id="2_no4f0"]
+[ext_resource type="Texture2D" uid="uid://c01n2sw85pm33" path="res://graphics/enemies/skeleton_sprite_frames_new.png" id="2_no4f0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hf0or"]
 atlas = ExtResource("2_no4f0")

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c01n2sw85pm33"
-path="res://.godot/imported/skeleton_sprite_frames_new.png-e6d8abe66931bd9b24e723c0c6900b1e.ctex"
+path="res://.godot/imported/skeleton_sprite_frames_new.png-4dee80601760631e90b4777a1a97fc06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/player/skeleton_sprite_frames_new.png"
-dest_files=["res://.godot/imported/skeleton_sprite_frames_new.png-e6d8abe66931bd9b24e723c0c6900b1e.ctex"]
+source_file="res://graphics/enemies/skeleton_sprite_frames_new.png"
+dest_files=["res://.godot/imported/skeleton_sprite_frames_new.png-4dee80601760631e90b4777a1a97fc06.ctex"]
 
 [params]
 
